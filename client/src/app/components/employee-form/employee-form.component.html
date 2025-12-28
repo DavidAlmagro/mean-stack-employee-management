@@ -1,0 +1,60 @@
+<div class="container">
+  <h1>{{ isEditMode ? 'Edit Employee' : 'Create New Employee' }}</h1>
+
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name"
+        [(ngModel)]="employee.name" 
+        required
+        #name="ngModel"
+      />
+      <div *ngIf="name.invalid && name.touched" class="validation-error">
+        Name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="position">Position:</label>
+      <input 
+        type="text" 
+        id="position" 
+        name="position"
+        [(ngModel)]="employee.position" 
+        required
+        #position="ngModel"
+      />
+      <div *ngIf="position.invalid && position.touched" class="validation-error">
+        Position is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="level">Level:</label>
+      <select 
+        id="level" 
+        name="level"
+        [(ngModel)]="employee.level" 
+        required
+      >
+        <option value="junior">Junior</option>
+        <option value="mid">Mid</option>
+        <option value="senior">Senior</option>
+      </select>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-submit" [disabled]="employeeForm.invalid">
+        {{ isEditMode ? 'Update' : 'Create' }}
+      </button>
+      <button type="button" class="btn-cancel" (click)="cancel()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
