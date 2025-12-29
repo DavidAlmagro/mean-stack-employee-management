@@ -63,9 +63,12 @@ employeeRouter.put('/:id', async (req, res) => {
         const id = req.params.id;
         const employee: Employee = req.body;
         
+        // Remove _id from the update payload to avoid immutable field error
+        const { _id, ...updateData } = employee as any;
+        
         const result = await collections.employees?.updateOne(
             { _id: new mongodb.ObjectId(id) },
-            { $set: employee }
+            { $set: updateData }
         );
 
         if (result && result.matchedCount) {
