@@ -1,0 +1,20 @@
+MEAN Stack Employee Management - Production Links
+==================================================
+
+Backend API (Render):
+https://employee-management-api-7uel.onrender.com
+
+Frontend Application (Netlify):
+https://69521c66916017030dbe3334--precious-pasca-a8518c.netlify.app
+
+API Endpoints:
+- GET    /employees         - Get all employees
+- GET    /employees/:id     - Get employee by ID
+- POST   /employees         - Create new employee
+- PUT    /employees/:id     - Update employee
+- DELETE /employees/:id     - Delete employee
+
+GitHub Repository:
+https://github.com/DavidAlmagro/mean-stack-employee-management
+
+Last Updated: December 29, 2025
